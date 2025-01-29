@@ -475,6 +475,7 @@ Miscellaneous
 * Built-in aggregate functions accepting only one argument (``Avg``, ``Count``,
   ``Max``, ``Min``, ``StdDev``, ``Sum``, and ``Variance``) now raise
   :exc:`TypeError` when called with an incorrect number of arguments.
+* The ``django`` command is added as an alternative spelling for ``django-admin``.
 
 .. _deprecated-features-5.2:
 
