@@ -264,6 +264,8 @@ Logging
 Management Commands
 ~~~~~~~~~~~~~~~~~~~
 
+* The ``django`` command is added as an alternative spelling for ``django-admin``.
+
 * Management commands now set :class:`~argparse.ArgumentParser`\'s
   ``suggest_on_error`` argument to ``True`` by default on Python 3.14, enabling
   suggestions for incorrectly typed subcommand names and argument choices.
