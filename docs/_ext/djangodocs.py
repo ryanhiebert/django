@@ -46,12 +46,12 @@ def setup(app):
         indextemplate="pair: %s; field lookup type",
     )
     app.add_object_type(
-        directivename="django-admin",
-        rolename="djadmin",
-        indextemplate="pair: %s; django-admin command",
-        parse_node=parse_django_admin_node,
+        directivename="django-cmd",
+        rolename="djcmd",
+        indextemplate="pair: %s; django command",
+        parse_node=parse_django_cmd_node,
     )
-    app.add_directive("django-admin-option", Cmdoption)
+    app.add_directive("django-cmd-option", Cmdoption)
     app.add_config_value("django_next_version", "0.0", True)
     app.add_directive("versionadded", VersionDirective)
     app.add_directive("versionchanged", VersionDirective)
@@ -181,10 +181,10 @@ class DjangoHTMLTranslator(HTMLTranslator):
         node["ids"] = old_ids
 
 
-def parse_django_admin_node(env, sig, signode):
+def parse_django_cmd_node(env, sig, signode):
     command = sig.split(" ")[0]
     env.ref_context["std:program"] = command
-    title = "django-admin %s" % sig
+    title = "django %s" % sig
     signode += addnodes.desc_name(title, title)
     return command
 

@@ -231,7 +231,7 @@ class TestChildArguments(SimpleTestCase):
     @mock.patch("sys.warnoptions", [])
     def test_exe_fallback(self):
         with tempfile.TemporaryDirectory() as tmpdir:
-            exe_path = Path(tmpdir) / "django-admin.exe"
+            exe_path = Path(tmpdir) / "django.exe"
             exe_path.touch()
             with mock.patch("sys.argv", [exe_path.with_suffix(""), "runserver"]):
                 self.assertEqual(
@@ -242,7 +242,7 @@ class TestChildArguments(SimpleTestCase):
     @mock.patch.dict(sys.modules, {"__main__": django.__main__})
     def test_use_exe_when_main_spec(self):
         with tempfile.TemporaryDirectory() as tmpdir:
-            exe_path = Path(tmpdir) / "django-admin.exe"
+            exe_path = Path(tmpdir) / "django.exe"
             exe_path.touch()
             with mock.patch("sys.argv", [exe_path.with_suffix(""), "runserver"]):
                 self.assertEqual(
@@ -257,7 +257,7 @@ class TestChildArguments(SimpleTestCase):
             script_path = Path(tmpdir) / "django-admin-script.py"
             script_path.touch()
             with mock.patch(
-                "sys.argv", [script_path.with_name("django-admin"), "runserver"]
+                "sys.argv", [script_path.with_name("django"), "runserver"]
             ):
                 self.assertEqual(
                     autoreload.get_child_arguments(),

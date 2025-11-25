@@ -157,7 +157,7 @@ Minor features
 :mod:`django.contrib.postgres`
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* :djadmin:`inspectdb` now introspects
+* :djcmd:`inspectdb` now introspects
   :class:`~django.contrib.postgres.fields.HStoreField` when ``psycopg`` 3.2+ is
   installed and ``django.contrib.postgres`` is in :setting:`INSTALLED_APPS`.
 
@@ -463,7 +463,7 @@ Models
 System checks
 -------------
 
-* The :djadmin:`check` management command now supplies all ``databases`` if not
+* The :djcmd:`check` management command now supplies all ``databases`` if not
   specified. Callers should be prepared for databases to be accessed.
 
 Dropped support for PostgreSQL 14

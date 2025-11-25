@@ -1,5 +1,5 @@
 """
-Invokes django-admin when the django module is run as a script.
+Invokes the django command when the django module is run as a script.
 
 Example: python -m django check
 """
