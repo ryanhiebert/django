@@ -356,6 +356,19 @@ class ManagementUtility:
         Given the command-line arguments, figure out which subcommand is being
         run, create a parser appropriate to that command, and run it.
         """
+        if self.prog_name == "django-admin":
+            # `django-admin` will continue to work indefinitely,
+            # but we want to encourage people to use `django` instead.
+            style = color_style()
+            self.stderr.write(
+                style.NOTICE(
+                    "The django-admin command is being renamed to django. "
+                    "You can keep using either name, "
+                    "they are equivalent except for the printing of this message. "
+                    "For more details on the naming change, see DEP 0016."
+                )
+            )
+
         try:
             subcommand = self.argv[1]
         except IndexError:
