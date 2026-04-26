@@ -256,9 +256,7 @@ class TestChildArguments(SimpleTestCase):
         with tempfile.TemporaryDirectory() as tmpdir:
             script_path = Path(tmpdir) / "django-admin-script.py"
             script_path.touch()
-            with mock.patch(
-                "sys.argv", [script_path.with_name("django"), "runserver"]
-            ):
+            with mock.patch("sys.argv", [script_path.with_name("django"), "runserver"]):
                 self.assertEqual(
                     autoreload.get_child_arguments(),
                     [sys.executable, script_path, "runserver"],
