@@ -218,7 +218,7 @@ class AdminScriptTestCase(SimpleTestCase):
 
 
 class DjangoAdminNoSettings(AdminScriptTestCase):
-    "A series of tests for the django cmmand when there is no settings.py file."
+    "A series of tests for django command when there is no settings.py file."
 
     def test_builtin_command(self):
         """
